@@ -1,0 +1,46 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Tecnologia {
+  id         BigInt    @id @default(autoincrement())
+  nome       String    @db.VarChar(150)
+  destaque  Boolean   @default(false)
+  descricao  String?   @default(dbgenerated("NULL")) @db.Text
+  imagem     String?   @default(dbgenerated("NULL")) @db.Text
+  projetos   Projeto[]
+  created_at DateTime  @default(dbgenerated("CURRENT_TIMESTAMP")) @db.Timestamp
+  updated_at DateTime? @default(dbgenerated("CURRENT_TIMESTAMP")) @updatedAt @db.Timestamp
+  deleted_at DateTime? @default(dbgenerated("NULL")) @db.Timestamp
+
+  @@map("tecnologias")
+}
+
+model Projeto {
+  id          BigInt       @id @default(autoincrement())
+  nome        String       @db.VarChar(150)
+  descricao   String?      @default(dbgenerated("NULL")) @db.Text
+  tipo        String?      @default(dbgenerated("NULL")) @db.VarChar(255)
+  imagens     String?      @default(dbgenerated("NULL")) @db.Text
+  nivel       Int          @db.Integer
+  repositorio String?      @default(dbgenerated("NULL")) @db.Text
+  destaque    Boolean      @default(false)
+  tecnologias Tecnologia[]
+  created_at  DateTime     @default(dbgenerated("CURRENT_TIMESTAMP")) @db.Timestamp
+  updated_at  DateTime?    @default(dbgenerated("CURRENT_TIMESTAMP")) @updatedAt @db.Timestamp
+  deleted_at  DateTime?    @default(dbgenerated("NULL")) @db.Timestamp
+
+  @@map("projetos")
+}
