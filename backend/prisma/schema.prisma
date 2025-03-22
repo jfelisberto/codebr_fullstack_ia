@@ -15,9 +15,9 @@ datasource db {
 }
 
 model Tecnologia {
-  id         BigInt    @id @default(autoincrement())
+  id         Int       @id @default(autoincrement())
   nome       String    @db.VarChar(150)
-  destaque  Boolean   @default(false)
+  destaque   Boolean   @default(false)
   descricao  String?   @default(dbgenerated("NULL")) @db.Text
   imagem     String?   @default(dbgenerated("NULL")) @db.Text
   projetos   Projeto[]
@@ -29,11 +29,11 @@ model Tecnologia {
 }
 
 model Projeto {
-  id          BigInt       @id @default(autoincrement())
+  id          Int          @id @default(autoincrement())
   nome        String       @db.VarChar(150)
   descricao   String?      @default(dbgenerated("NULL")) @db.Text
   tipo        String?      @default(dbgenerated("NULL")) @db.VarChar(255)
-  imagens     String?      @default(dbgenerated("NULL")) @db.Text
+  imagens     String[]      @default(dbgenerated("NULL")) @db.Text
   nivel       Int          @db.Integer
   repositorio String?      @default(dbgenerated("NULL")) @db.Text
   destaque    Boolean      @default(false)

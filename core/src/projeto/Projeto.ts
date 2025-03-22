@@ -6,8 +6,8 @@ export default interface Projeto {
 	id: number
 	nome: string
 	descricao: string
-	tipo: Tipo
 	imagens: string[]
+	tipo: Tipo
 	nivel: Nivel
 	repositorio: string
 	destaque: boolean
