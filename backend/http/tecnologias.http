@@ -1,0 +1,7 @@
+GET http://localhost:3000/tecnologias
+
+###
+GET http://localhost:3000/tecnologias/destaques
+
+###
+GET http://localhost:3000/tecnologias/20

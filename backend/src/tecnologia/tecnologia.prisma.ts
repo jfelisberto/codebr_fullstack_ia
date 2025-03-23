@@ -10,7 +10,15 @@ export class TecnologiaPrisma {
 		return this.prisma.tecnologia.findMany() as any
 	}
 
-	async obterDestaques(destaque: boolean): Promise<Tecnologia | null> {
+	async obterDestaques(): Promise<Tecnologia[]> {
+		return this.prisma.tecnologia.findMany({
+			where: {
+				destaque: false,
+			},
+		}) as any
+	}
+
+	async filtraDestaques(destaque: boolean): Promise<Tecnologia | null> {
 		return this.prisma.tecnologia.findMany({
 			where: {
 				destaque: destaque,

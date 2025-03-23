@@ -1,0 +1,19 @@
+POST https://jefweb.app.n8n.cloud/webhook/assistente-pessoal
+
+###
+POST https://jefweb.app.n8n.cloud/webhook/d22707a0-5999-4cb5-9408-70a2dd748b03/chat
+Content-Type: application/json
+
+{
+    "chatId": "123456",
+    "mensagem": "Bom dia"
+}
+
+###
+POST https://jefweb.app.n8n.cloud/webhook/assistente-pessoal
+Content-Type: application/json
+
+{
+    "chatId": "123456",
+    "mensagem": "Bom dia, você trabalha React Native?"
+}
