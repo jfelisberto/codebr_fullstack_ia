@@ -1,0 +1,12 @@
+{
+  "name": "codebr_fullstack_ia",
+  "version": "1.0.0",
+  "description": "Projeto Fullstack React | NestJS | Integração com ferramentas de IA",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx concurrently \"cd backend && npm run start:dev\" \"cd web && npm run dev\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
