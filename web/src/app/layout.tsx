@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
+import BotaoChat from "@/components/chat/BotaoChat";
 
 export const metadata: Metadata = {
   title: "Portifolio Fullstack IA",
@@ -17,12 +18,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR">
-      <body
-        className={`${fonte.className} antialiased`}
-      >
-        {children}
-      </body>
-    </html>
-  );
+		<html lang="pt-BR">
+			<body className={`${fonte.className} antialiased`}>{children}<BotaoChat /></body>
+		</html>
+  )
 }
